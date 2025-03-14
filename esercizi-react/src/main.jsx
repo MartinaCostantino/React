@@ -1,11 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App'
+import Semaforo from './components/Semaforo'
+
 
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App></App>
+    <Semaforo></Semaforo>
   </StrictMode>,
 )
