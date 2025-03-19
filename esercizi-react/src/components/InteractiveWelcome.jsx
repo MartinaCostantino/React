@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Welcome from "./Welcome";
-import Login from "./Login";
+
+import UncontrolledLogin from "./UncontrolledLogin";
 
 export default function InteractiveWelcome() {
     const [userName, setUserName] = useState("");
@@ -9,9 +10,7 @@ export default function InteractiveWelcome() {
         setUserName(event.target.value);
     }
 
-    function onLogin(data) {
-        console.log("Login data:", data);
-    }
+    
 
     return (
         <div>
@@ -23,7 +22,7 @@ export default function InteractiveWelcome() {
                 placeholder="Scrivi il tuo nome"
             />
             <Welcome name={userName} />
-            <Login onLogin={onLogin} />
+            <UncontrolledLogin  />
         </div>
     );
 }
