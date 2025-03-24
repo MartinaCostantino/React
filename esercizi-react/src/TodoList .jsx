@@ -1,4 +1,3 @@
-import Color from "./color";
 import { useState } from "react";
 
 export default function TodoList (){
@@ -28,9 +27,9 @@ export default function TodoList (){
             </li>
         ))}
       </ul>
-      <input type="text" value={inputValue} onChange={(event)=>{setInputValue(event.target.value)}}/>
-      <button onClick={handleEvent}>invia</button>
-      <button name="reset" onClick={handleReset}>Reset</button>
+      <input className="inputLista" type="text" value={inputValue} onChange={(event)=>{setInputValue(event.target.value)}}/>
+      <button className="btnInviaLista" onClick={handleEvent}>invia</button>
+      <button className="reset" name="reset" onClick={handleReset}>Reset</button>
       
       
       </>
