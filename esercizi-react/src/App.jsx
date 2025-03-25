@@ -1,17 +1,25 @@
+import { useState } from 'react'
 import './App.css'
-import Container from './Container'
-import TodoList from './TodoList '
+import HelloWorld from './HelloWorld'
+import { LanguageContext } from './Language'
+
 
 
 function App() {
-  
+const [language, setLanguage] = useState("en");
+function handleLanguage(event){
+ setLanguage(event.target.value)
+}
 
   return (
     <>
-    <Container title="TODOLIST">
-   <TodoList></TodoList>
-
-    </Container>
+    <select name="language" id="language" onChange={handleLanguage}>
+    <option value="en">English</option>
+    <option value="it">Italiano</option>
+    </select>
+    <LanguageContext.Provider value={language}>
+      <HelloWorld></HelloWorld>
+    </LanguageContext.Provider>
     </>
   )
 }
