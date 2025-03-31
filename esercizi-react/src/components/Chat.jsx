@@ -23,9 +23,7 @@ export default function Chat(){
             ricevuto = "Scusa ora devo andare!"}
 
       },2000)
-      
-        console.log(messaggiInviati)
-        console.log(risposte)
+
      } 
 
    return(
