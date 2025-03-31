@@ -17,7 +17,13 @@
 }
 .chat {
     flex: 2;
-    border-radius: 10px
+    border-radius: 10px;
+    height: 400px; 
+    overflow-y: auto; 
+    scroll-behavior: smooth; 
+    overflow-y: scroll; 
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
 }
 .scrivi{
     display: flex;
@@ -48,9 +54,12 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap:15px;
+    gap:25px;
     padding: 25px 10px;
     color: white;
+}
+.messaggiRicevuti{
+   margin-top: 25px;
 }
 .messaggio, .risposta {
     border: 6px hidden;
@@ -65,6 +74,7 @@
 }
 .messaggio{
     border-radius: 40px 40px 0px 40px;
+    
 }
 .risposta{
     border-radius: 40px 40px 40px 0px;

@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./chat.css"
 
 export default function Chat(){
-   const [inviato, setInviato]= useState(null);
+   const [inviato, setInviato]= useState("");
    const[messaggiInviati, setMessaggiInviati] = useState([])
-  
-   
-   
    const messaggiUscita=[ "Ciao!", "Come stai?", "Bene, che bella giornata!"]
    let [risposte, setRisposte] = useState([])
    let [indiceRisposta, setIndiceRisposta] = useState(0)
    
    
+   
    function handleInvia(event) {
       event.preventDefault()
+      if (!inviato.trim()) return;
+      setInviato("")
       setMessaggiInviati([...messaggiInviati, inviato])
       setTimeout(()=>{
-         setIndiceRisposta(indiceRisposta + 1 ) 
+         setIndiceRisposta(indiceRisposta > messaggiUscita.length ? indiceRisposta = 0 : indiceRisposta + 1 ) 
          let ricevuto = messaggiUscita[indiceRisposta];
          setRisposte(risposta => [...risposta, ricevuto]);
          if (indiceRisposta === messaggiUscita.length ){
             ricevuto = "Scusa ora devo andare!"}
 
       },2000)
-        event.target.reset();
+      
         console.log(messaggiInviati)
         console.log(risposte)
      } 
@@ -46,7 +46,7 @@ export default function Chat(){
            </div>
         </div>    
         <form onSubmit={handleInvia}  className="scrivi">
-          <input className="barra" type="text"  onChange={(event) => setInviato(event.target.value)} />
+          <input className="barra" type="text"  onChange={(event) => setInviato(event.target.value)}  value={inviato}/>
          <button className="btnInviaMessaggio" type="submit" >✔️</button> 
         </form>
        </div>
