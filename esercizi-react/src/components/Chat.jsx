@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./chat.css"
+import useSWR from "swr"
 
+const fetcher = (url) => fetch(url).then((response) => response.json());
 export default function Chat(){
    const [inviato, setInviato]= useState("");
    const[messaggiInviati, setMessaggiInviati] = useState([])
-   const messaggiUscita=[ "Ciao!", "Come stai?", "Bene, che bella giornata!"]
    let [risposte, setRisposte] = useState([])
    let [indiceRisposta, setIndiceRisposta] = useState(0)
    
-   
+   const {data} = useSWR("https://mocki.io/v1/52978e6f-8d2b-4d88-9f8d-9701b0175d34", fetcher)
+   console.log(data)
    
    function handleInvia(event) {
       event.preventDefault()
@@ -16,11 +18,11 @@ export default function Chat(){
       setInviato("")
       setMessaggiInviati([...messaggiInviati, inviato])
       setTimeout(()=>{
-         setIndiceRisposta(indiceRisposta > messaggiUscita.length ? indiceRisposta = 0 : indiceRisposta + 1 ) 
-         let ricevuto = messaggiUscita[indiceRisposta];
-         setRisposte(risposta => [...risposta, ricevuto]);
-         if (indiceRisposta === messaggiUscita.length ){
-            ricevuto = "Scusa ora devo andare!"}
+         setIndiceRisposta(indiceRisposta > data.responses.length ? indiceRisposta = 0 : indiceRisposta + 1 ) 
+          if(data  && data.responses){
+            const ricevuto =  data.responses[indiceRisposta];
+            setRisposte(risposta => [...risposta, ricevuto]);
+          }
 
       },2000)
 
