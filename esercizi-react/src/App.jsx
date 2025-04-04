@@ -1,19 +1,20 @@
 import {  Route, Routes } from 'react-router-dom'
-import ShowGitHubUser from './components/ShowGitHubUser'
 import NotFound from './components/NotFound'
-import GithubUserList from './components/GitHubUserList'
 import Home from './components/Home'
+import Dashboard from './components/Dashboard'
+import Profilo from './components/Profilo'
+import './app.css'
+import Impostazioni from './components/Impostazioni'
 
 function App() {
   return (
     <>
-    
-    
-    <Routes>
+     <Routes>
      <Route path='/' element={<Home/>}/>
-     <Route path="users" element={<GithubUserList/>}>
-      <Route path=":username" element={<ShowGitHubUser />} /> 
-      </Route>
+     <Route path="dashboard" element={<Dashboard />}  >
+       <Route path="profilo" element={<Profilo />} /> 
+       <Route path="impostazioni" element={<Impostazioni/>} /> 
+     </Route>
      <Route path='*' element={<NotFound></NotFound>} />
     </Routes>
     
