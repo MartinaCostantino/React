@@ -3,6 +3,48 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap:30px;
 }
 
+.task{
+  background-color: #FAFAFA;
+  color: rgb(211, 16, 16);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 180px;
+  max-width: 300px;
+}
+.taskCompletata{
+  background-color: #FAFAFA;
+  color: rgb(14, 216, 54);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 180px;
+  max-width: 300px;
+}
+
+.formCrea{
+  background-color: #FAFAFA;
+  color: black;
+  border-radius: 10px;
+  display: flex;
+  padding: 50px;
+  gap: 5px;
+  
+}
+.noTask{
+  color: black;
+  border: solid gray 2px;
+  border-radius: 10px;
+  font-size: 30px;
+}
 
